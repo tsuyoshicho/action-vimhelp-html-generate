@@ -1,15 +1,18 @@
 #!/bin/sh
 
-VIM=vim
-TARGET=$(FOLDER:-build)
+if [ -z "${FOLDER}" ]
+then
+  echo "You must provide the action with the folder name in the repository where your work."
+  exit 1
+fi
 
 # File Deploy
-rm -rf $(TARGET)/
-mkdir -p $(TARGET)/generate
-cp doc/* $(TARGET)/generate
-cd $(TARGET)/generate; $(VIM) -eu ../../tools/buildhtml.vim -c "qall!"; cd -
-cp $(TARGET)/generate/*.html $(TARGET)/
-rm -rf $(TARGET)/generate
-cd $(TARGET);sh ../tools/genindex.sh > index.html; cd -
+rm -rf ${FOLDER}/
+mkdir -p ${FOLDER}/generate
+cp doc/* ${FOLDER}/generate
+cd ${FOLDER}/generate; vim -eu ../../tools/buildhtml.vim -c "qall!"; cd -
+cp ${FOLDER}/generate/*.html ${FOLDER}/
+rm -rf ${FOLDER}/generate
+cd ${FOLDER};sh ../tools/genindex.sh > index.html; cd -
 
 # EOF
