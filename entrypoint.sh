@@ -1,7 +1,7 @@
 #!/bin/sh
 
-VIM = vim
-TARGET = $(FOLDER:-build)
+VIM=vim
+TARGET=$(FOLDER:-build)
 
 # File Deploy
 rm -rf $(TARGET)/
