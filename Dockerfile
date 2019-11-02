@@ -1,4 +1,4 @@
-FROM vim:latest
+FROM thinca/vim:latest
 # FROM alpine:3.10
 
 # RUN apk --update add vim && \
