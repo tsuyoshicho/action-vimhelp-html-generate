@@ -10,9 +10,9 @@ fi
 rm -rf ${FOLDER}/
 mkdir -p ${FOLDER}/generate
 cp doc/* ${FOLDER}/generate
-cd ${FOLDER}/generate; vim -eu ../../tools/buildhtml.vim -c "qall!"; cd -
+cd ${FOLDER}/generate; vim -eu /tools/buildhtml.vim -c "qall!"; cd -
 cp ${FOLDER}/generate/*.html ${FOLDER}/
 rm -rf ${FOLDER}/generate
-cd ${FOLDER};sh ../tools/genindex.sh > index.html; cd -
+cd ${FOLDER};sh /tools/genindex.sh > index.html; cd -
 
 # EOF
