@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-RUN apk --update add vim && \
+RUN apk --update add bash vim && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 RUN mkdir /lib64 && \
