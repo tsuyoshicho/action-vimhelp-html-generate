@@ -1,0 +1,15 @@
+name: 'Run vim for vimhelp to html'
+description: 'Generate HTML vim doc help'
+author: 'Tsuyoshi CHO <Tsuyoshi.CHO+develop@Gmail.com>'
+inputs:
+  FOLDER:
+    description: "Build work directory"
+    default: 'build'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.folder }}
+branding:
+  icon: 'alert-octagon'
+  color: 'blue'
