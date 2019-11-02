@@ -15,14 +15,17 @@ source <sfile>:h/tag_aliases.vim
 source <sfile>:h/untranslated.vim
 source <sfile>:h/makehtml.vim
 
-let s:tools_dir = expand('<sfile>:p:h')
-let s:proj_dir = expand('<sfile>:p:h:h')
+" let s:tools_dir = expand('<sfile>:p:h')
+" let s:proj_dir = expand('<sfile>:p:h:h')
+let s:tools_dir = '/tools'
+let s:proj_dir  = '/'
 
 function! s:main()
   " for the lastest help syntax
   let &runtimepath = s:tools_dir . ',' . &runtimepath
   " for ja custom syntax
-  let &runtimepath .= ',' . s:proj_dir
+  " let &runtimepath .= ',' . s:proj_dir
+  let &runtimepath = s:proj_dir  . ',' . &runtimepath
   call s:BuildHtml()
 endfunction
 
