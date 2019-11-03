@@ -94,6 +94,14 @@ function! MakeHtml2(src, dst, conceal)
   endif
 
   silent! %foldopen!
+
+  " debug
+  let debugmsg = [
+        \ '<!-- ' . 'filetype is '    . &filetype    . '-->',
+        \ '<!-- ' . 'runtimepath is ' . &runtimepath . '-->',
+        \ '<!-- ' . 'modeline is '    . &modeline    . '-->',
+        \]
+
   silent! call tohtml#Convert2HTML(1, line('$'))
   " silent! TOhtml
 
@@ -105,7 +113,7 @@ function! MakeHtml2(src, dst, conceal)
   " remove style
   silent g/^\.\(helpBar\|helpStar\|helpHyperTextEntry\|helpHyperTextJump\|helpOption\|helpCommand\)/silent delete _
 
-  call s:Header()
+  call s:Header(debugmsg)
   call s:Footer()
 
   silent wq! `=a:dst`
@@ -132,17 +140,26 @@ function! s:TranslateHelpExampleBlock()
   endwhile
 endfunction
 
-function! s:Header()
+function! s:Header(debugmsg)
   let name = fnamemodify(bufname("%"), ":r:r")
   let indexfile = s:GetIndexFile(bufname("%"))
-  let title = printf("<title>Vim documentation: %s</title>", name)
+  let title = printf("<title>[debug]Vim documentation: %s</title>", name)
   call setline(search('^<title', 'wn'), title)
+
+  " debug
+  if empty(a:debugmsg)
+    call append(search('^<title', 'wn'), ['<!-- no debugmsg -->'])
+  else
+    call append(search('^<title', 'wn'), a:debugmsg)
+  endif
+
   let header = [
         \ s:MakeLangLinks(bufname("%")),
         \ printf('<a name="top"></a><h1>Vim documentation: %s</h1>', name),
         \ printf('<a href="%s">main help file</a>', indexfile),
         \ '<hr>',
         \ ]
+
   call append(search('^<body', 'wn'), header)
   let style = [
         \ '.MissingTag { background-color: black; color: white; }',

@@ -1,0 +1,28 @@
+name: "debug vim help convert"
+on:
+  push:
+    branches:
+      - debug
+jobs:
+  ghpages:
+    name: Convert and deploy vim help
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+        with:
+          ref: debug
+      - name: generate html
+        uses: tsuyoshicho/action-vimhelp-html-generate@debug
+        env:
+          FOLDER: build
+      - name: result
+        run: |
+          ls -al build/*
+      - name: deploy debug
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_BRANCH: debug
+          BRANCH: debug-output
+          FOLDER: build
