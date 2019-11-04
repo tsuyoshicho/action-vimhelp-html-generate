@@ -8,6 +8,7 @@ let g:html_no_progress = 1
 set background=light
 set wrap
 set ambiwidth=double
+set modeline
 
 enew!
 
