@@ -1,11 +1,4 @@
-FROM thinca/vim:latest
-# FROM alpine:3.10
-
-# RUN apk --update add vim && \
-#     rm -rf /var/lib/apt/lists/* && \
-#     rm /var/cache/apk/*
-# RUN mkdir /lib64 && \
-#     ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+FROM thinca/vim:v8.1.2248
 
 ADD  tools/ /tools/
 
