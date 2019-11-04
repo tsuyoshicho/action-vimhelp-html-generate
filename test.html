@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>[debug]Vim documentation: test</title>
+<!-- filetype is help-->
+<!-- runtimepath is /,/tools,/github/home/.vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim81,/usr/local/share/vim/vimfiles/after,/github/home/.vim/after-->
+<!-- modeline is 1-->
+<meta name="Generator" content="Vim/8.1">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="help">
+<meta name="settings" content="no_progress,number_lines,ignore_folding,use_css,no_foldcolumn,expand_tabs,line_ids,ignore_conceal,prevent_copy=">
+<meta name="colorscheme" content="delek">
+<style type="text/css">
+<!--
+.MissingTag { background-color: black; color: white; }
+.EnglishTag { background-color: gray; color: white; }
+pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.LineNr { color: #008080; text-decoration: underline; }
+.Statement { color: #ff6060; font-weight: bold; }
+.Constant { color: #008000; text-decoration: underline; }
+.PreProc { color: #c000c0; text-decoration: underline; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+Language: <a href="test.html">en</a> <a href="test.ja.html">ja</a>
+<a name="top"></a><h1>Vim documentation: test</h1>
+<a href="index.html">main help file</a>
+<hr>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><a class="Constant" href="test.html" name="test.txt">test.txt</a>      a summary
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span>Version :
+<span id="L4" class="LineNr"> 4 </span>Author  : Tsuyoshi CHO &lt;Tsuyoshi.CHO+develop@Gmail.com&gt;
+<span id="L5" class="LineNr"> 5 </span>License : MIT license  {{{
+<span id="L6" class="LineNr"> 6 </span>    Permission is hereby granted, free of charge, to any person obtaining
+<span id="L7" class="LineNr"> 7 </span>    a copy of this software and associated documentation files (the
+<span id="L8" class="LineNr"> 8 </span>    &quot;Software&quot;), to deal in the Software without restriction, including
+<span id="L9" class="LineNr"> 9 </span>    without limitation the rights to use, copy, modify, merge, publish,
+<span id="L10" class="LineNr">10 </span>    distribute, sublicense, and/or sell copies of the Software, and to
+<span id="L11" class="LineNr">11 </span>    permit persons to whom the Software is furnished to do so, subject to
+<span id="L12" class="LineNr">12 </span>    the following conditions:
+<span id="L13" class="LineNr">13 </span>    The above copyright notice and this permission notice shall be included
+<span id="L14" class="LineNr">14 </span>    in all copies or substantial portions of the Software.
+<span id="L15" class="LineNr">15 </span>
+<span id="L16" class="LineNr">16 </span>    THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+<span id="L17" class="LineNr">17 </span>    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+<span id="L18" class="LineNr">18 </span>    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+<span id="L19" class="LineNr">19 </span>    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+<span id="L20" class="LineNr">20 </span>    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+<span id="L21" class="LineNr">21 </span>    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+<span id="L22" class="LineNr">22 </span>    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<span id="L23" class="LineNr">23 </span>}}}
+<span id="L24" class="LineNr">24 </span>
+<span id="L25" class="LineNr">25 </span><span class="PreProc">==============================================================================</span>
+<span id="L26" class="LineNr">26 </span><span class="Statement">CONTENTS                                        </span><a class="Constant" href="test.html#test-contents" name="test-contents">test-contents</a>
+<span id="L27" class="LineNr">27 </span>
+<span id="L28" class="LineNr">28 </span>INTRODUCTION                    <a class="Identifier" href="test.html#test-introduction">test-introduction</a>
+<span id="L29" class="LineNr">29 </span>USAGE                           <a class="Identifier" href="test.html#test-usage">test-usage</a>
+<span id="L30" class="LineNr">30 </span>INTERFACE                       <a class="Identifier" href="test.html#test-interface">test-interface</a>
+<span id="L31" class="LineNr">31 </span>TODO                            <a class="Identifier" href="test.html#test-todo">test-todo</a>
+<span id="L32" class="LineNr">32 </span>CHANGELOG                       <a class="Identifier" href="test.html#test-changelog">test-changelog</a>
+<span id="L33" class="LineNr">33 </span>
+<span id="L34" class="LineNr">34 </span>
+<span id="L35" class="LineNr">35 </span><span class="PreProc">==============================================================================</span>
+<span id="L36" class="LineNr">36 </span><span class="Statement">INTRODUCTION                                    </span><a class="Constant" href="test.html#test-introduction" name="test-introduction">test-introduction</a>
+<span id="L37" class="LineNr">37 </span>
+<span id="L38" class="LineNr">38 </span>latest:
+<span id="L39" class="LineNr">39 </span><span class="Constant"><a href="https://github.com/tsuyoshicho/action-vimhelp-html-generate">https://github.com/tsuyoshicho/action-vimhelp-html-generate</a></span>
+<span id="L40" class="LineNr">40 </span>
+<span id="L41" class="LineNr">41 </span><span class="PreProc">==============================================================================</span>
+<span id="L42" class="LineNr">42 </span><span class="Statement">USAGE                                           </span><a class="Constant" href="test.html#test-usage" name="test-usage">test-usage</a>
+<span id="L43" class="LineNr">43 </span>
+<span id="L44" class="LineNr">44 </span>
+<span id="L45" class="LineNr">45 </span>
+<span id="L46" class="LineNr">46 </span><span class="PreProc">==============================================================================</span>
+<span id="L47" class="LineNr">47 </span><span class="Statement">INTERFACE                                       </span><a class="Constant" href="test.html#test-interface" name="test-interface">test-interface</a>
+<span id="L48" class="LineNr">48 </span>
+<span id="L49" class="LineNr">49 </span><span class="PreProc">==============================================================================</span>
+<span id="L50" class="LineNr">50 </span><span class="Statement">TODO                                            </span><a class="Constant" href="test.html#test-todo" name="test-todo">test-todo</a>
+<span id="L51" class="LineNr">51 </span>
+<span id="L52" class="LineNr">52 </span>
+<span id="L53" class="LineNr">53 </span>
+<span id="L54" class="LineNr">54 </span><span class="PreProc">==============================================================================</span>
+<span id="L55" class="LineNr">55 </span><span class="Statement">CHANGELOG                                       </span><a class="Constant" href="test.html#test-changelog" name="test-changelog">test-changelog</a>
+<span id="L56" class="LineNr">56 </span>
+<span id="L57" class="LineNr">57 </span>
+<span id="L58" class="LineNr">58 </span><span class="PreProc">==============================================================================</span>
+<span id="L59" class="LineNr">59 </span>vim:tw=78:ts=8:ft=help:norl:noet:fen:
+</pre>
+<hr>
+<a href="#top">top</a> - <a href="index.html">main help file</a><br>
+Language: <a href="test.html">en</a> <a href="test.ja.html">ja</a>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
