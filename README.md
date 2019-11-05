@@ -8,10 +8,10 @@ Generate html from Vim help (/doc)
 
 ### `FOLDER`
 
-**Required**. generate html store folder
+**Optional**. generate html store folder
 
 ```
-defaut value: build.
+default value: "build"
 ```
 
 ## Example usage
