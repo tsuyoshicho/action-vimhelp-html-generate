@@ -8,11 +8,9 @@ fi
 
 # File Deploy
 rm -rf ${FOLDER}/
-mkdir -p ${FOLDER}/generate
-cp doc/* ${FOLDER}/generate
-cd ${FOLDER}/generate; vim -eu /tools/buildhtml.vim -c "qall!"; cd -
-cp ${FOLDER}/generate/*.html ${FOLDER}/
-rm -rf ${FOLDER}/generate
+cp -r doc ${FOLDER}
+cd ${FOLDER}/; vim -eu /tools/buildhtml.vim -c "qall!"; cd -
+find ${FOLDER}/ \( -name "*.txt" -or -name "*.??x" \) -type f -print0 | rm -f {} \;
 cd ${FOLDER};sh /tools/genindex.sh > index.html; cd -
 
 # EOF
