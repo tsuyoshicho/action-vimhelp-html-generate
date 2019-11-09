@@ -24,7 +24,7 @@ function! MakeHtmlAll(...)
   let s:log = []
   call MakeTagsFile()
   echo ""
-  let files = split(glob(, '**/*.??[tx]'), '\n')
+  let files = split(glob('**/*.??[tx]'), '\n')
   for i in range(len(files))
     let file = files[i]
     echon printf("%d/%d %s -> %s", i+1, len(files), files[i], s:HtmlName(files[i]))
