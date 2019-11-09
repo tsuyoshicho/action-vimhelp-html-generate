@@ -18,7 +18,7 @@ default value: "build"
 
 Set workflow into vim plugin.
 
-### [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
+### [.github/workflows/vimhelpdeploy.yml](.github/workflows/vimhelpdeploy.yml)
 
 ```yml
 name: "deploy vim help to gh-pages"
