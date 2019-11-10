@@ -10,8 +10,7 @@ fi
 rm -rf ${FOLDER}/
 cp -r doc ${FOLDER}
 cd ${FOLDER}/; vim -eu /tools/buildhtml.vim -c "qall!"; cd -
-# all delete, currently commented out.
-# find ${FOLDER}/ \( -name "*.txt" -or -name "*.??x" \) -type f -exec rm -f {} +
+find ${FOLDER}/ \( -name "*.txt" -or -name "*.??x" \) -type f -exec rm -f {} +
 cd ${FOLDER};sh /tools/genindex.sh > index.html; cd -
 
 # EOF
