@@ -264,16 +264,17 @@ function! s:HtmlName(helpfile)
   " help.txt => "help.html"
   " help.jax => "help.ja.html"
   let lang = s:GetLang(a:helpfile)
-  let base = fnamemodify(a:helpfile, ":r")
+  let path = fnamemodify(a:helpfile, ":p:h")
+  let base = fnamemodify(a:helpfile, ":t:r")
   if base == "help"
     let base = "index"
   elseif base == "index"
     let base = "vimindex"
   endif
   if s:IsSingleMode()
-    return printf("%s.html", base)
+    return path . '/' . printf("%s.html", base)
   endif
-  return printf("%s%s.html", base, (lang == "") ? "" : "." . lang)
+  return path . '/' . printf("%s%s.html", base, (lang == "") ? "" : "." . lang)
 endfunction
 
 function! s:GetLang(fname)
