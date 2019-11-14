@@ -51,8 +51,7 @@ jobs:
 - [thinca's vim docker image](https://hub.docker.com/r/thinca/vim)
 - [vim-jp vimdoc-jp help](https://github.com/vim-jp/vimdoc-ja)
 
-##  License
-
-- CC0
+## License
+[CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/)
 
 vim-jp: vimdoc-ja-working's [discussion](https://github.com/vim-jp/vimdoc-ja-working/issues/733).
