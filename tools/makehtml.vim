@@ -264,7 +264,7 @@ function! s:HtmlName(helpfile)
   " help.txt => "help.html"
   " help.jax => "help.ja.html"
   let lang = s:GetLang(a:helpfile)
-  let path = fnamemodify(a:helpfile, ":p:h")
+  let path = fnamemodify(a:helpfile, ":h")
   let base = fnamemodify(a:helpfile, ":t:r")
   if base == "help"
     let base = "index"
