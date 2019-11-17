@@ -154,7 +154,7 @@ endfunction
 function! s:Footer(lang)
   let indexfile = s:GetIndexFile(bufname("%"))
   let tags = s:GetTags(a:lang)
-  let tagsfile = tags["help-tags"]["filename"]
+  let tagsfile = tags["help-tags"]["html"]
   let footer = [
         \ '<hr>',
         \ printf('<a href="#top">top</a> - <a href="%s">main help file</a> - <a href="%s">tag index</a> <br>',
