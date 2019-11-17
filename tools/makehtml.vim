@@ -106,7 +106,7 @@ function! MakeHtml2(src, dst, conceal)
   silent g/^\.\(helpBar\|helpStar\|helpHyperTextEntry\|helpHyperTextJump\|helpOption\|helpCommand\)/silent delete _
 
   call s:Header()
-  call s:Footer()
+  call s:Footer(lang)
 
   silent wq! `=a:dst`
 endfunction
@@ -151,11 +151,16 @@ function! s:Header()
   call append(search('^<style', 'wn') + 1, style)
 endfunction
 
-function! s:Footer()
+function! s:Footer(lang)
   let indexfile = s:GetIndexFile(bufname("%"))
+  let tags = s:GetTags(a:lang)
+  let tagsfile = tags["help-tags"]["filename"]
   let footer = [
         \ '<hr>',
-        \ printf('<a href="#top">top</a> - <a href="%s">main help file</a><br>', s:UpToBase() . indexfile),
+        \ printf('<a href="#top">top</a> - <a href="%s">main help file</a> - <a href="%s">tag index</a> <br>',
+        \         s:UpToBase() . indexfile,
+        \         s:UpToBase() . tagsfile
+        \ ),
         \ s:MakeLangLinks(bufname("%")),
         \ ]
   call append(search('^</body', 'wn') - 1, footer)
