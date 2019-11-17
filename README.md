@@ -40,7 +40,8 @@ jobs:
       - name: deploy gh-pages
         uses: JamesIves/github-pages-deploy-action@master
         env:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: build
