@@ -140,7 +140,7 @@ function! s:Header()
   let header = [
         \ s:MakeLangLinks(bufname("%")),
         \ printf('<a name="top"></a><h1>Vim documentation: %s</h1>', name),
-        \ printf('<a href="%s">main help file</a>', indexfile),
+        \ printf('<a href="%s">main help file</a>', s:UpToBase() . indexfile),
         \ '<hr>',
         \ ]
   call append(search('^<body', 'wn'), header)
@@ -155,7 +155,7 @@ function! s:Footer()
   let indexfile = s:GetIndexFile(bufname("%"))
   let footer = [
         \ '<hr>',
-        \ printf('<a href="#top">top</a> - <a href="%s">main help file</a><br>', indexfile),
+        \ printf('<a href="#top">top</a> - <a href="%s">main help file</a><br>', s:UpToBase() . indexfile),
         \ s:MakeLangLinks(bufname("%")),
         \ ]
   call append(search('^</body', 'wn') - 1, footer)
@@ -184,7 +184,7 @@ function! s:MakeLink(lang, hlname, tagname, conceal)
     let tagname = g:makehtml_tag_aliases[tagname]
   endif
   if has_key(tags, tagname)
-    let href = tags[tagname]["html"]
+    let href = s:UpToBase() . tags[tagname]["html"]
     if tagname !~ '\.txt$' && tagname != "help-tags"
       let href .= '#' . tagname
     endif
@@ -194,7 +194,7 @@ function! s:MakeLink(lang, hlname, tagname, conceal)
       let res = printf('<a class="%s" href="%s">%s%s%s</a>', s:attr_save[a:hlname], href, sep, a:tagname, sep)
     endif
   elseif has_key(tags, ":" . tagname)
-    let href = tags[":" . tagname]["html"]
+    let href = s:UpToBase() . tags[":" . tagname]["html"]
     let href .= '#:' . tagname
     if a:hlname == "helpHyperTextEntry"
       let res = printf('<a class="%s" href="%s" name="%s">%s%s%s</a>', s:attr_save[a:hlname], href, a:tagname, sep, a:tagname, sep)
@@ -206,7 +206,7 @@ function! s:MakeLink(lang, hlname, tagname, conceal)
     call s:Log("%s: tag error: %s", bufname("%"), tagname)
     let tags = s:GetTags("")
     if has_key(tags, tagname)
-      let href = tags[tagname]["html"]
+      let href = s:UpToBase() . tags[tagname]["html"]
       if tagname !~ '\.txt$'
         let href .= '#' . tagname
       endif
@@ -266,15 +266,26 @@ function! s:HtmlName(helpfile)
   let lang = s:GetLang(a:helpfile)
   let path = fnamemodify(a:helpfile, ":h")
   let base = fnamemodify(a:helpfile, ":t:r")
-  if base == "help"
-    let base = "index"
-  elseif base == "index"
-    let base = "vimindex"
-  endif
+  " currently, do no support help or index document name
+  " if base == "help"
+  "   let base = "index"
+  " elseif base == "index"
+  "   let base = "vimindex"
+  " endif
   if s:IsSingleMode()
     return path . '/' . printf("%s.html", base)
   endif
   return path . '/' . printf("%s%s.html", base, (lang == "") ? "" : "." . lang)
+endfunction
+
+function! s:UpToBase()
+  let path = fnamemodify(bufname("%"), ":h")
+  let result = './'
+  while !(path ==# '/' || path ==# '.')
+    let path = fnamemodify(path, ":h")
+    let result .= '../'
+  endwhile
+  return result
 endfunction
 
 function! s:GetLang(fname)
@@ -285,11 +296,13 @@ function! s:GetLang(fname)
 endfunction
 
 function! s:GetIndexFile(fname)
-  if s:IsSingleMode()
-    return "index.html"
-  endif
-  let lang = s:GetLang(a:fname)
-  return printf("index%s.html", (lang == "") ? "" : "." . lang)
+  " currently, index is only one generated.
+  return "index.html"
+  " if s:IsSingleMode()
+  "   return "index.html"
+  " endif
+  " let lang = s:GetLang(a:fname)
+  " return printf("index%s.html", (lang == "") ? "" : "." . lang)
 endfunction
 
 function! s:MakeLangLinks(htmlfile)
@@ -298,10 +311,10 @@ function! s:MakeLangLinks(htmlfile)
   endif
   let base = fnamemodify(a:htmlfile, ':r:r')
   let files = split(glob(base . '.??x'), '\n')
-  let res = printf('Language: <a href="%s.html">en</a>', base)
+  let res = printf('Language: <a href="%s.html">en</a>', s:UpToBase() . base)
   for name in files
     let lang = s:GetLang(name)
-    let res .= printf(' <a href="%s">%s</a>', s:HtmlName(name), lang)
+    let res .= printf(' <a href="%s">%s</a>', s:UpToBase() . s:HtmlName(name), lang)
   endfor
   return res
 endfunction
