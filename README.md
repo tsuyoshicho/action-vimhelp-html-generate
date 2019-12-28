@@ -32,17 +32,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
       - name: generate html
-        uses: tsuyoshicho/action-vimhelp-html-generate@master
+        uses: tsuyoshicho/action-vimhelp-html-generate@v1
         env:
           FOLDER: build
       - name: deploy gh-pages
-        uses: JamesIves/github-pages-deploy-action@master
+        uses: JamesIves/github-pages-deploy-action@v3
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # alternative GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: build
 ```
