@@ -1,5 +1,8 @@
 # GitHub Action: Run vim help html generator
 
+[![Docker Image CI](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/actions)
+[![Release](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/workflows/release/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/releases)
+
 ## action-vimhelp-html-generate
 
 Generate html from Vim help (/doc)
@@ -10,9 +13,7 @@ Generate html from Vim help (/doc)
 
 **Optional**. generate html store folder
 
-```
 default value: "build"
-```
 
 ## Example usage
 
@@ -45,12 +46,13 @@ jobs:
           FOLDER: build
 ```
 
-## Special thanks.
+## Special thanks
 
 - [thinca's vim docker image](https://hub.docker.com/r/thinca/vim)
 - [vim-jp vimdoc-jp help](https://github.com/vim-jp/vimdoc-ja)
 
 ## License
+
 [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/)
 
 vim-jp: vimdoc-ja-working's [discussion](https://github.com/vim-jp/vimdoc-ja-working/issues/733).
