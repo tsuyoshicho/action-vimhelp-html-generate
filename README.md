@@ -1,7 +1,7 @@
 # GitHub Action: Run vim help html generator
 
-[![Docker Image CI](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/actions)
-[![Release](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/workflows/release/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-tagname-check/releases)
+[![Docker Image CI](https://github.com/tsuyoshicho/action-vimhelp-html-generate/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-html-generate/actions)
+[![Release](https://github.com/tsuyoshicho/action-vimhelp-html-generate/workflows/release/badge.svg)](https://github.com/tsuyoshicho/action-vimhelp-html-generate/releases)
 
 ## action-vimhelp-html-generate
 
