@@ -11,7 +11,7 @@ WORKDIR /root/cloned
 RUN git submodule sync --recursive && \
     git submodule update --init --recursive
 
-COPY tools/ /tools/
+RUN cp -a tools/ /tools/
 
 COPY entrypoint.sh /entrypoint.sh
 
