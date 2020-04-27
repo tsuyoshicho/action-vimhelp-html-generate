@@ -9,6 +9,7 @@ syntax on
 set wrap
 set ambiwidth=double
 set modeline
+set termguicolors
 
 enew!
 
