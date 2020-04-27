@@ -21,9 +21,7 @@ let s:tools_dir = expand('<sfile>:p:h')
 let s:proj_dir = expand('<sfile>:p:h:h')
 
 function! s:main()
-  " for the lastest help syntax
-  let &runtimepath = s:tools_dir . ',' . &runtimepath
-  " for ja custom syntax
+  " for custom syntax
   let &runtimepath = s:proj_dir  . ',' . &runtimepath
 
   " additinal plugin/colorscheme
