@@ -27,7 +27,7 @@ function! s:main()
 
   " additinal plugin/colorscheme
   for name in ['github']
-    let &runtimepath = s:tools_dir . '/' name . ',' . &runtimepath
+    let &runtimepath = s:tools_dir . '/' . name . ',' . &runtimepath
   endfor
 
   " colorscheme set
