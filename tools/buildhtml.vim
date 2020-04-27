@@ -37,10 +37,10 @@ function! s:main()
   else
     let bg = tolower(bg)
   endif
-  let scheme = getenv('COLORSHEME')
+  let scheme = getenv('COLORSCHEME')
   if scheme == v:null
     let scheme = 'delek'
-    if isdirectory(s:tools_dir . 'github')
+    if isdirectory(expand(s:tools_dir . '/github'))
       let scheme = 'github'
     endif
   endif
