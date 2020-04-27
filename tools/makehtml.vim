@@ -73,15 +73,20 @@ function! MakeHtml2(src, dst, conceal)
   silent new `=a:src`
 
   " 2html options
-  let g:html_ignore_conceal = 1
-  let g:html_ignore_folding = 1
-  let g:html_line_ids       = 1
-  let g:html_no_pre         = 0
-  let g:html_number_lines   = 1
-  let g:html_use_css        = 1
-  let g:html_hover_unfold   = 1
-  let g:html_pre_wrap       = 0
   let g:html_expand_tabs    = 1
+
+  let g:html_ignore_conceal = 1
+
+  let g:html_ignore_folding = 1
+  let g:html_hover_unfold   = 1
+
+  let g:html_number_lines   = 0
+  let g:html_line_ids       = 0
+
+  let g:html_pre_wrap       = 0
+  let g:html_no_pre         = 0
+
+  let g:html_use_css        = 1
   let g:html_use_xhtml      = 0
 
   " set dumy highlight to keep syntax identity

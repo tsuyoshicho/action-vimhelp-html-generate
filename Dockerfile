@@ -1,10 +1,17 @@
-FROM thinca/vim:v8.1.2248
+FROM thinca/vim:v8.2.0640
 
-RUN apk --update add tree && \
+RUN apk --update add tree git && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
-ADD  tools/ /tools/
+WORKDIR /root
+RUN git clone https://github.com/tsuyoshicho/action-vimhelp-html-generate.git cloned
+WORKDIR /root/cloned
+
+RUN git submodule sync --recursive && \
+    git submodule update --init --recursive
+
+COPY tools/ /tools/
 
 COPY entrypoint.sh /entrypoint.sh
 
