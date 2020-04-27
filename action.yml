@@ -5,6 +5,15 @@ inputs:
   FOLDER:
     description: "Build work directory"
     default: 'build'
+    required: false
+  BACKGROUND:
+    description: "HTML background type(light and dark)"
+    default: 'light'
+    required: false
+  COLORSCHEME:
+    description: "HTML colorscheme type(as vim built-ins' and github)"
+    default: 'github'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

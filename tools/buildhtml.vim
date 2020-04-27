@@ -43,6 +43,8 @@ function! s:main()
     if isdirectory(expand(s:tools_dir . '/github'))
       let scheme = 'github'
     endif
+  else
+      let scheme = tolower(scheme)
   endif
 
   let &background = bg
