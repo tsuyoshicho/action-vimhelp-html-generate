@@ -5,7 +5,7 @@ RUN apk --update add tree git && \
     rm /var/cache/apk/*
 
 WORKDIR /root
-RUN git clone -b fix/todo https://github.com/tsuyoshicho/action-vimhelp-html-generate.git cloned
+RUN git clone https://github.com/tsuyoshicho/action-vimhelp-html-generate.git cloned
 WORKDIR /root/cloned
 
 RUN git submodule sync --recursive && \
