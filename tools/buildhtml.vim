@@ -43,7 +43,7 @@ function! s:main()
       let scheme = 'github'
     endif
   else
-      let scheme = tolower(scheme)
+    let scheme = tolower(scheme)
   endif
 
   let &background = bg
