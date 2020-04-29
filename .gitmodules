@@ -1,3 +1,0 @@
-[submodule "tools/github"]
-	path = tools/github
-	url = https://github.com/cormacrelf/vim-colors-github.git
