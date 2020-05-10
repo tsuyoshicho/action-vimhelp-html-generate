@@ -13,7 +13,7 @@ cd ${FOLDER}/; vim -eu /tools/buildhtml.vim -c "qall!"; cd -
 find ${FOLDER}/ \( -name "*.txt" -or -name "*.??x" \) -type f -exec rm -f {} +
 rm -f ${FOLDER}/tags
 rm -f ${FOLDER}/tags-??
-cd ${FOLDER};sh /tools/genindex.sh > index.html; cd -
+find ${FOLDER}/ -type d -exec sh -c "cd {};sh /tools/genindex.sh > index.html" \;
 touch "${FOLDER}/.nojekyll"
 
 # EOF
