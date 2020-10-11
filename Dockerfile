@@ -1,4 +1,4 @@
-FROM thinca/vim:v8.2.1830
+FROM thinca/vim:v8.2.1833
 
 RUN apk --update add tree git && \
     rm -rf /var/lib/apt/lists/* && \
