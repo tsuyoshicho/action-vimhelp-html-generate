@@ -14,4 +14,4 @@ jobs:
         with:
           submodules: true
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag tsuyoshicho-vimhelp-html-generate:$(date +%s)
+        run: docker build . --file Dockerfile --tag ${{ github.repository }}:$(date +%s)
