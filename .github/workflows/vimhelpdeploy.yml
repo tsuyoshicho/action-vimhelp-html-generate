@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+permissions:
+  contents: write
+
 jobs:
   ghpages:
     name: Convert and deploy vim help
@@ -16,11 +19,8 @@ jobs:
         uses: tsuyoshicho/action-vimhelp-html-generate@master
         env:
           FOLDER: build
-          BACKGROUND: light
-          COLORSCHEME: github
       - name: Deploy gh-pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
