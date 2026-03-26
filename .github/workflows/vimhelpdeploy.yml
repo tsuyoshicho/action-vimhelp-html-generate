@@ -14,7 +14,7 @@ jobs:
           persist-credentials: false
           submodules: true
       - name: generate html
-        uses: tsuyoshicho/action-vimhelp-html-generate@master
+        uses: tsuyoshicho/action-vimhelp-html-generate@068973ca66bb94f7cf8e26e31dddf2f01895aa61 # master
         env:
           FOLDER: build
       - name: deploy gh-pages
