@@ -3,11 +3,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'DockerFile'
   pull_request:
-    paths:
-      - 'DockerFile'
+
 jobs:
   build:
     runs-on: ubuntu-latest
