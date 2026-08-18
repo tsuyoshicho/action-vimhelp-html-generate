@@ -1,4 +1,4 @@
-FROM thinca/vim:latest@sha256:72ed0ed2464eab5818a7c4a0ee1acd04ad58318de46393562522d6e456f95d22
+FROM thinca/vim:latest@sha256:6cd0f161829d1880ba8a8a543fe0918072d96a18f735a6ed24d5653d8ce5bbce
 
 RUN apk --update add tree git && \
     rm -rf /var/lib/apt/lists/* && \
